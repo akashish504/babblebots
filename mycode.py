@@ -1,4 +1,4 @@
-arr = [40,30,50,60,70,80,90,60,50,70]
+arr = [12, 50, 15, 60, 10, 70, 15]
 res = []
 i = 0
 ascending =0
@@ -38,6 +38,15 @@ while i < len(arr):
     i=i+1
 
 print(res)
+
+# At this point the solution in not optimal, it only considers local hills not the global hills.
+
+# for eg
+# for [12, 50, 15, 60, 10, 70, 15]
+
+# the answer would be [[12], [50, 15], [60, 10], [70, 15]]
+
+# So would need to rewrite the grouping logic. Which sort of culminates to optimal solution
 
 
 temp = []
