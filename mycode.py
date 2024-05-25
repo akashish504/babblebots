@@ -1,4 +1,4 @@
-arr = [12, 50, 15, 60, 10, 70, 15]
+arr = [12, 50, 15, 60, 9, 62, 10, 70, 15]
 res = []
 i = 0
 ascending =0
@@ -52,18 +52,28 @@ print(res)
 temp = []
 new_res = []
 for i in range(len(res) - 1, 0, -1):
-    if res[i-1][-1] > res[i][-1]  :
-        temp = res[i] + temp 
-    else:
-        temp = res[i] + temp
-        new_res.append(temp)
-        temp = []
-if res[0][-1] > res[1][-1]  :
-    temp = res[0] + temp
-    new_res.append(temp)
-else:
     if temp:
+        if res[i-1][-1] > temp[-1]  :
+            temp = res[i] + temp 
+        else:
+            temp = res[i] + temp
+            new_res.append(temp)
+            temp = []
+    else:
+        if res[i-1][-1] > res[i][-1]  :
+            temp = res[i] 
+        else:
+            new_res.append(res[i])
+if temp:
+    if res[0][-1] > temp[-1]:
+        temp = res[0] + temp
         new_res.append(temp)
+    else:
+        if temp:
+            new_res.append(temp)
+        new_res.append(res[0])
+else:
     new_res.append(res[0])
+
 print(new_res[::-1])
     
